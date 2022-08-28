@@ -3,7 +3,7 @@
 {% block title %}Home | {% endblock %}
 
 {% block content %}
-{{uname}}
+
 <div class="container">
     <div class="blogs-wrapper">
         {% for post in posts %}
@@ -27,12 +27,12 @@
                     
                     <p>{{uname}} {{post.uname}}</p>
                    
-                    {# if uname == post.uname#}
-                    {% if uname != None %}
+                    {% if uname == post.uname.uname %}
+                    {# if uname != None #}
                     <a class="btn btn-primary" href="{% url 'update' post.id %}" onclick="return confirm('Are you sure you want to edit this post?')">Edit</a>
                     <a class="btn btn-danger" href="{% url 'delete' post.id %}" onclick="return confirm('Are you sure you want to delete this post?')">Delete</a>
+                    {# endif #}
                     {% endif %}
-                    {#endif#}
                     
                 </div>
             </div>
